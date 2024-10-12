@@ -1,0 +1,13 @@
+{
+    "require": {
+        "phpmailer/phpmailer": "^6.9"
+    },
+    "autoload": {
+        "files": [
+            "core/helpers.php"
+        ],
+        "psr-4": {
+            "": "app/"
+        }
+    }
+}

@@ -7,7 +7,7 @@ define('ENV', [
   'DEVELOPMENT' => true,
   'CONTACT_EMAIL' => 'arifurrahman01710@gmail.com',
   'OPENWEATHER_API_KEY' => '',
-  'BASE_PATH' => '/Interview/mvc-app/public/',
+  'BASE_PATH' => '/Interview/mvc-app/',
   'MAIL_MAILER' => 'smtp',
   'SMTP_HOST' => 'sandbox.smtp.mailtrap.io',
   'SMTP_USERNAME' => 'd1249e05285021',

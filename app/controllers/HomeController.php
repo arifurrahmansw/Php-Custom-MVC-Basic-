@@ -1,5 +1,5 @@
 <?php
-require_once '../app/Models/ApiModel.php';
+require_once 'app/Models/ApiModel.php';
 class HomeController extends Controller
 {
   public function index()

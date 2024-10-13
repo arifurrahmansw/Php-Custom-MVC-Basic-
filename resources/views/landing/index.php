@@ -9,11 +9,7 @@ ob_start();
             <?php foreach ($data['rows'] as $row): ?>
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="post-card-1 border-radius-10 hover-up">
-                        <div class="post-thumb thumb-overlay img-hover-slide position-relative" style="background-image:url(<?= isset($row['image']) ? htmlspecialchars($row['image']) : ENV['BASE_PATH'] . 'images/default/default-image.png'; ?>)">
-                            <a class="img-link" href="/blog/3"></a>
-                            <span class="top-right-icon bg-success">
-                                <i class="elegant-icon icon_camera_alt"></i>
-                            </span>
+                        <div class="post-thumb thumb-overlay img-hover-slide position-relative" style="background-image:url(<?= isset($row['image']) ? htmlspecialchars($row['image']) : ENV['BASE_PATH'] . 'public/images/default/default-image.png'; ?>)">
                         </div>
                         <div class="post-content p-30">
                             <div class="d-flex post-card-content">
@@ -35,5 +31,5 @@ ob_start();
 </div>
 <?php
 $content = ob_get_clean();
-require "../resources/views/layouts/app.php";
+require "resources/views/layouts/app.php";
 ?>

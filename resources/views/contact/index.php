@@ -97,4 +97,4 @@ if (empty($_SESSION['csrf_token'])) {
 </script>
 <?php
 $content = ob_get_clean();
-require "../resources/views/layouts/app.php";
+require "resources/views/layouts/app.php";

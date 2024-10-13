@@ -9,5 +9,5 @@ ob_start();
 </div>
 <?php
 $content = ob_get_clean();
-require "../resources/views/layouts/app.php";
+require "resources/views/layouts/app.php";
 ?>

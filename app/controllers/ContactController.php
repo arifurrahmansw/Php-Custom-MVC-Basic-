@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../requests/ContactFormRequest.php';
+require_once __DIR__ . '/../Requests/ContactFormRequest.php';
 require_once __DIR__ . '/../../vendor/autoload.php';
 
 use PHPMailer\PHPMailer\PHPMailer;

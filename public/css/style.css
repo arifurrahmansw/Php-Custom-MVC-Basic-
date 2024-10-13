@@ -1,18 +1,195 @@
+:root {
+  --color-dark: #000c2d;
+  --color-primary: #5869da;
+  --color-danger: #e3363e;
+  --color-warning: #e38836;
+}
 .card {
-    border-radius: 10px; /* Rounded corners */
+  border-radius: 10px;
 }
-
 .card img {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    height: 200px; /* Fixed height for uniformity */
-    object-fit: cover; /* Keeps aspect ratio */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 200px;
+  object-fit: cover;
 }
-
 .card-title {
-    font-size: 1.25rem; /* Slightly larger title */
+  font-size: 1.25rem;
+}
+.btn {
+  margin-top: 10px;
 }
 
-.btn {
-    margin-top: 10px; /* Space above button */
+.mb-20 {
+  margin-bottom: 20px !important;
+}
+.font-weight-900 {
+  font-weight: 900;
+}
+.btn,
+.font-heading,
+.post-title,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-style: normal;
+  font-weight: 500;
+  text-transform: none;
+  font-family: Noto Sans JP, sans-serif;
+  color: rgb(64, 64, 64);
+}
+.post-card-1 .post-content {
+  background: #fff;
+  border-radius: 0 0 10px 10px;
+}
+.p-30 {
+  padding: 30px !important;
+}
+.img-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+}
+.post-card-1 .thumb-overlay {
+  min-height: 220px;
+  border-radius: 10px 10px 0 0;
+}
+.img-hover-slide {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50%;
+  min-height: 280px;
+  overflow: hidden;
+}
+.position-relative {
+  position: relative !important;
+}
+.post-card-1 {
+  border: 1px solid #f0f8ff;
+  z-index: 12;
+  position: relative;
+  background: #fff;
+}
+.post-card-1,
+.transition-normal {
+  transition: all 0.25s cubic-bezier(0.02, 0.01, 0.47, 1);
+}
+.border-radius-10 {
+  border-radius: 10px;
+}
+.thumb-overlay:before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(0, 0, 0, 0.8));
+  transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -ms-transition: all 0.4s ease;
+}
+.post-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  min-height: 115px;
+}
+.d-flex {
+  display: flex !important;
+}
+.button,
+a {
+  transition: all 0.2s ease-out 0s;
+}
+
+a {
+  color: rgb(64, 64, 64);
+  text-transform: capitalize;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+}
+
+.mb-10 {
+  margin-bottom: 10px !important;
+}
+.entry-meta {
+  line-height: 1;
+  color: #666;
+}
+
+.post-card-1:before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  bottom: 0;
+  left: 10px;
+  border-radius: 10px;
+  transition: all 0.25s cubic-bezier(0.02, 0.01, 0.47, 1);
+  z-index: -1;
+}
+.thumb-overlay:before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(0, 0, 0, 0.8));
+  transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -ms-transition: all 0.4s ease;
+}
+.hover-up-2:hover,
+.hover-up:hover {
+  transform: translateY(-2px);
+}
+
+.comment-form textarea {
+  padding-top: 18px;
+  border-radius: 10px;
+  height: 100% !important;
+  background: #fff;
+}
+.btn:not(:disabled):not(.disabled) {
+  cursor: pointer;
+}
+.button {
+  display: inline-block;
+  border: 1px solid transparent;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 12px 54px;
+  border-radius: 30px;
+  color: #fff!important;
+  border: 1px solid var(--color-primary);
+  text-transform: uppercase;
+  background: var(--color-primary);
+  cursor: pointer;
+  transition: all 0.3s linear 0s;
+}
+
+.form-control {
+  border: 1px solid #e1e1e1;
+  border-radius: 30px;
+  height: 48px;
+  padding-left: 18px;
+  font-size: 14px;
+  background: transparent;
+  background: #fff;
+}
+.button:hover {
+  background: var(--color-danger);
+  border: 1px solid var(--color-danger);
 }

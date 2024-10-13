@@ -4,11 +4,11 @@ ini_set('display_errors', 1);
 if (session_status() === PHP_SESSION_NONE) {
   session_start();
 }
-require_once '../core/ExceptionHandler.php';
+require_once '../app/Exceptions/Handler.php';
 require_once '../core/DD.php';
 require_once '../config/env.php';
-require_once '../core/helpers.php';
-require_once '../config/routes.php';
+require_once '../app/Helpers/Helpers.php';
+require_once '../routes/web.php';
 require_once '../core/Controller.php';
 require_once '../core/Model.php';
 set_exception_handler(['ExceptionHandler', 'handleException']);
@@ -37,7 +37,7 @@ if (isset($routes[$uri])) {
     // Debugging: Output the controller and method
     // echo "Controller: " . htmlspecialchars($controllerName) . "<br>";
     // echo "Method: " . htmlspecialchars($methodName) . "<br>";
-    require_once "../app/controllers/$controllerName.php";
+    require_once "../app/Controllers/$controllerName.php";
     // Check if the controller class exists
     if (!class_exists($controllerName)) {
         throw new Exception("Controller class not found: " . htmlspecialchars($controllerName));
@@ -48,5 +48,9 @@ if (isset($routes[$uri])) {
     }
     $controller->$methodName();
 } else {
-    throw new Exception("Route not found for URI: " . htmlspecialchars($uri));
+    // throw new Exception("Route not found for URI: " . htmlspecialchars($uri));
+    // Render the 404 page using the ErrorController
+    require_once "../app/Controllers/ErrorController.php";
+    $errorController = new ErrorController();
+    $errorController->error404();
 }

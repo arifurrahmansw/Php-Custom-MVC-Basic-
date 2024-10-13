@@ -5,17 +5,23 @@ ob_start();
 <h1 class="text-center my-4">Home page</h1>
 <div class="container">
     <div class="row">
-        <?php if (!empty($data['apiData'])): ?>
-            <?php foreach ($data['apiData'] as $item): ?>
-                <div class="col-md-4 mb-4">
-                    <div class="card shadow-sm border-light">
-                        <img src="<?= isset($item['image']) ? htmlspecialchars($item['image']) : ENV['BASE_PATH'] . 'images/default/default-image-295x248.png'; ?>"
-                            class="card-img-top"
-                            alt="<?= htmlspecialchars($item['title']); ?>">
-                        <div class="card-body">
-                            <h5 class="card-title"><?php echo htmlspecialchars($item['title']); ?></h5>
-                            <p class="card-text"><?php echo htmlspecialchars($item['body']); ?></p>
-                            <a href="#" class="btn btn-primary">Read More</a>
+        <?php if (!empty($data['rows'])): ?>
+            <?php foreach ($data['rows'] as $row): ?>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="post-card-1 border-radius-10 hover-up">
+                        <div class="post-thumb thumb-overlay img-hover-slide position-relative" style="background-image:url(<?= isset($row['image']) ? htmlspecialchars($row['image']) : ENV['BASE_PATH'] . 'images/default/default-image.png'; ?>)">
+                            <a class="img-link" href="/blog/3"></a>
+                            <span class="top-right-icon bg-success">
+                                <i class="elegant-icon icon_camera_alt"></i>
+                            </span>
+                        </div>
+                        <div class="post-content p-30">
+                            <div class="d-flex post-card-content">
+                                <h5 class="post-title mb-20 font-weight-900">
+                                    <a href="#"><?php echo htmlspecialchars($row['title']); ?></a>
+                                </h5>
+                                <p class="card-text"><?php echo htmlspecialchars($row['body']); ?></p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -27,7 +33,6 @@ ob_start();
         <?php endif; ?>
     </div>
 </div>
-
 <?php
 $content = ob_get_clean();
 require "../app/views/layouts/app.php";

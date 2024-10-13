@@ -5,6 +5,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 define('ENV', [
   'DEVELOPMENT' => true,
   'CONTACT_EMAIL' => 'arifurrahman01710@gmail.com',
+  'OPENWEATHER_API_KEY' => '',
   'BASE_PATH' => '/Interview/mvc-app/public/',
   'MAIL_MAILER' => 'smtp',
   'SMTP_HOST' => 'sandbox.smtp.mailtrap.io',

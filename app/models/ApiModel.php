@@ -1,7 +1,8 @@
 <?php
 
 class ApiModel extends Model {
-  public function fetchData() {
+
+  public function getAPIdata() {
     $apiUrl = "https://jsonplaceholder.typicode.com/posts";
     $response = file_get_contents($apiUrl);
     if ($response === FALSE) {
@@ -9,4 +10,5 @@ class ApiModel extends Model {
     }
     return json_decode($response, true);
   }
+
 }

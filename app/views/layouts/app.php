@@ -11,14 +11,14 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="<?= ENV['BASE_PATH'] ?>">My Application</a>
+                <a class="navbar-brand" href="<?= ENV['BASE_PATH'] ?>">MVC</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="<?= ENV['BASE_PATH'] ?>landing">Home</a>
+                            <a class="nav-link active" aria-current="page" href="<?= ENV['BASE_PATH'] ?>">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?= ENV['BASE_PATH'] ?>contact">Contact Us</a>
@@ -32,7 +32,7 @@
         <?php echo $content; ?>
     </main>
     <footer class="text-center mt-4">
-        <p>&copy; <?php echo date('Y'); ?></p>
+        <p>&copy; <?php echo date('Y'); ?> All Rights Reserved</p>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>

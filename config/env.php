@@ -5,6 +5,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 // Define constants
 define('ENV', [
   'DEVELOPMENT' => true,
+  'SYS_NAME' => 'Custom MVC',
   'CONTACT_EMAIL' => 'arifurrahman01710@gmail.com',
   'OPENWEATHER_API_KEY' => '',
   'BASE_PATH' => '/Interview/mvc-app/',
@@ -14,22 +15,28 @@ define('ENV', [
   'SMTP_PASSWORD' => 'a5ec5607a174a6',
   'SMTP_PORT' => 2525,
   'MAIL_ENCRYPTION' => PHPMailer::ENCRYPTION_STARTTLS,
+  'DB_NAME' =>'',
+  'DB_USER'=>'root',
+  'DB_PASSWORD'=>'',
+  'DB_HOST'=>'localhost',
+  'DB_PORT'=>'3306',
+  'DEFAULT_LOCALE'=>'en',
 ]);
 
-function loadEnv($file)
-{
-    if (!file_exists($file)) {
-        return;
-    }
-    $lines = file($file);
-    foreach ($lines as $line) {
-        $line = trim($line);
-        if (empty($line) || $line[0] === '#') {
-            continue;
-        }
-        list($key, $value) = explode('=', $line, 2);
-        putenv("$key=$value");
-        define($key, $value);
-    }
-}
-loadEnv(__DIR__ . '/../.env');
+// function loadEnv($file)
+// {
+//     if (!file_exists($file)) {
+//         return;
+//     }
+//     $lines = file($file);
+//     foreach ($lines as $line) {
+//         $line = trim($line);
+//         if (empty($line) || $line[0] === '#') {
+//             continue;
+//         }
+//         list($key, $value) = explode('=', $line, 2);
+//         putenv("$key=$value");
+//         define($key, $value);
+//     }
+// }
+// loadEnv(__DIR__ . '/../.env');

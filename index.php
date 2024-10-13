@@ -11,7 +11,7 @@ require_once 'app/Helpers/Helpers.php';
 require_once 'routes/web.php';
 require_once 'core/Controller.php';
 require_once 'core/Model.php';
-set_exception_handler(['ExceptionHandler', 'handleException']);
+set_exception_handler(['ExceptionHandler', 'handle']);
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 if (strpos($uri, ENV['BASE_PATH']) === 0) {
     $uri = substr($uri, strlen(ENV['BASE_PATH']));

@@ -4,25 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Page Title -->
     <title><?php echo isset($title) ? htmlspecialchars($title) : 'Default Title'; ?></title>
-    
-    <!-- Meta Tags for SEO -->
     <meta name="description" content="<?php echo isset($metaDescription) ? htmlspecialchars($metaDescription) : 'This is a default description of the page for SEO purposes.'; ?>">
     <meta name="keywords" content="MVC, PHP, Website, Development, Custom, Application">
     <meta name="author" content="Your Name">
-
-    <!-- Open Graph Tags for Social Media Sharing -->
     <meta property="og:title" content="<?php echo isset($title) ? htmlspecialchars($title) : 'Default Title'; ?>" />
     <meta property="og:description" content="<?php echo isset($metaDescription) ? htmlspecialchars($metaDescription) : 'This is a default description for social sharing.'; ?>" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="<?= ENV['BASE_PATH'] ?>" />
-    <meta property="og:image" content="<?= ENV['BASE_PATH'] ?>images/social-share-image.jpg" />
-    
-    <!-- Favicon -->
-    <link rel="icon" href="<?= ENV['BASE_PATH'] ?>images/favicon.ico" type="image/x-icon">
-
+    <meta property="og:image" content="<?= ENV['BASE_PATH'] ?>public/images/social-share-image.jpg" />
+    <link rel="icon" href="<?= ENV['BASE_PATH'] ?>public/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?= ENV['BASE_PATH'] ?>public/css/style.css">
 </head>

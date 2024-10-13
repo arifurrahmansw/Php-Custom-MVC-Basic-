@@ -1,5 +1,5 @@
 <?php
 
-class View {
-  // Base view logic (if needed)
+class View
+{
 }

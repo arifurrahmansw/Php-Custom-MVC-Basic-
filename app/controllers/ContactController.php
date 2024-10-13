@@ -1,7 +1,5 @@
 <?php
-require_once __DIR__ . '/../Requests/ContactFormRequest.php';
 require_once __DIR__ . '/../../vendor/autoload.php';
-
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -14,6 +12,7 @@ class ContactController extends Controller
 
   public function submit()
   {
+    // CSRF Token validation
     if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
       $this->view(header('Location: ' . ENV['BASE_PATH'] . 'contact'), [
         'error' => 'Invalid CSRF token.',
@@ -22,12 +21,16 @@ class ContactController extends Controller
       ]);
       return;
     }
+
+    // Collect form data
     $formData = [
       'name' => $_POST['name'] ?? '',
       'email' => $_POST['email'] ?? '',
       'message' => $_POST['message'] ?? ''
     ];
     $errors = [];
+
+    // Validation
     if (empty($formData['name'])) {
       $errors['name'] = 'Name is required.';
     }
@@ -37,21 +40,18 @@ class ContactController extends Controller
     if (empty($formData['message'])) {
       $errors['message'] = 'Message is required.';
     }
+
     if (!empty($errors)) {
-      logMessage('Email sending failed: ' . $errors);
+      logMessage('Email sending failed: ' . json_encode($errors));
       $_SESSION['form_errors'] = $errors;
       $_SESSION['form_data'] = $formData;
       header('Location: ' . ENV['BASE_PATH'] . 'contact');
       exit;
     }
+
     try {
-      if (!filter_var($formData['email'], FILTER_VALIDATE_EMAIL)) {
-        $_SESSION['form_errors'] = ['general' => 'Please provide a valid email address.'];
-        $_SESSION['form_data'] = $formData;
-        header('Location: ' . ENV['BASE_PATH'] . 'contact');
-        exit;
-      }
-      if (empty(ENV['CONTACT_EMAIL'])) {
+      // Email sending logic
+      if (empty(ENV['MAIL_TO_ADDRESS'])) {
         throw new Exception('The contact email address is not set in the environment variables.');
       }
       $mail = new PHPMailer(true);
@@ -60,13 +60,24 @@ class ContactController extends Controller
       $mail->SMTPAuth = true;
       $mail->Username = ENV['SMTP_USERNAME'];
       $mail->Password = ENV['SMTP_PASSWORD'];
-      $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+      $mail->SMTPSecure = ENV['MAIL_ENCRYPTION'];
       $mail->Port = ENV['SMTP_PORT'];
+      // Set from email address and name
+      $mail->setFrom(ENV['MAIL_FROM_ADDRESS'], ENV['MAIL_FROM_NAME']);
+      // Add recipient
+      $mail->addAddress(ENV['MAIL_TO_ADDRESS']);
+      // Set email content
       $mail->isHTML(true);
-      $mail->setFrom($formData['email'], $formData['name']);
-      $mail->addAddress(ENV['CONTACT_EMAIL']);
       $mail->Subject = 'Contact form submission';
-      $mail->Body = "Name: {$formData['name']}<br>Email: {$formData['email']}<br>Message: {$formData['message']}";
+      // Start output buffering to capture the email template
+      ob_start();
+      // Pass the $formData array to the template
+      include 'resources/views/emails/email_template.php';  // Ensure this path is correct
+      $emailBody = ob_get_clean();
+
+      $mail->Body = $emailBody;
+
+      // Send email
       if ($mail->send()) {
         $_SESSION['success_message'] = 'Your message has been sent successfully!';
         header('Location: ' . ENV['BASE_PATH'] . 'contact');

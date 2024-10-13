@@ -1,5 +1,4 @@
 <?php
-
 $routes = [
     '/' => 'HomeController@index',
     '/contact' => 'ContactController@form',

@@ -1,6 +1,5 @@
 ## Disable MultiViews 
 Options -MultiViews
-
 ## Security Control ##
 <FilesMatch "\.(htaccess|htpasswd|ini|log|sh|inc|bak|tpl)$">
     Order Allow,Deny
@@ -13,7 +12,6 @@ Options -MultiViews
 <IfModule mod_security.c>
     SecFilterScanPOST Off
 </IfModule>
-
 ## Cache Control ##
 <IfModule mod_headers.c>
 <FilesMatch "\.(jpg|jpeg|png|gif|svg|swf|css|js)$">
@@ -68,11 +66,9 @@ Options -MultiViews
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /Interview/mvc-app/
-    
     # Ignore existing files and directories
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
-    
     # Redirect all other requests to index.php
     RewriteRule ^(.*)$ index.php [QSA,L]
 </IfModule>

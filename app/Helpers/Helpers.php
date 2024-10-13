@@ -1,7 +1,8 @@
 <?php
 
 if (!function_exists('dd')) {
-    function dd(...$data) {
+    function dd(...$data)
+    {
         echo '<pre style="background-color: #f8f9fa; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">';
         foreach ($data as $value) {
             print_r($value);
@@ -12,7 +13,8 @@ if (!function_exists('dd')) {
     }
 }
 
-function view($view, $data = []) {
+function view($view, $data = [])
+{
     extract($data);
     $viewPath = "../app/views/$view.php";
     $layoutPath = "../app/views/layouts/app.php";

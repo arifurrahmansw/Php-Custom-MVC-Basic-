@@ -17,10 +17,8 @@ define('ENV', [
     // Mail configuration settings
     'MAIL_MAILER' => 'smtp',  // Specify the mailer type
     'SMTP_HOST' => 'sandbox.smtp.mailtrap.io',  // SMTP server host
-    'SMTP_USERNAME' => 'd1249e05285021',  // Username for SMTP authentication
-    'SMTP_PASSWORD' => 'a5ec5607a174a6',  // Password for SMTP authentication
-    // 'SMTP_USERNAME' => 'd1249e05285021',  // Username for SMTP authentication
-    // 'SMTP_PASSWORD' => 'a5ec5607a174a6',  // Password for SMTP authentication
+    'SMTP_USERNAME' => '',  // Username for SMTP authentication
+    'SMTP_PASSWORD' => '',  // Password for SMTP authentication
     'SMTP_PORT' => 2525,  // SMTP port (typically 587 for TLS, 465 for SSL, or 25)
     'MAIL_FROM_ADDRESS' => 'no-reply@gmail.com',  // Default "from" email address
     'MAIL_FROM_NAME' => 'Custom MVC',  // Default "from" name

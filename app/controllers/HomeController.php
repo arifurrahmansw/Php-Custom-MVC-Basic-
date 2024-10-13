@@ -5,9 +5,9 @@ class HomeController extends Controller
   public function index()
   {
     try {
-      $apiModel = new ApiModel();
-      $apiData = $apiModel->getAPIdata();
-      $this->view('landing/index', ['rows' => $apiData]);
+      $model = new ApiModel();
+      $data = $model->getAPIdata();
+      $this->view('landing/index', ['rows' => $data]);
     } catch (Exception $e) {
       error_log($e->getMessage());
       dd($e->getMessage());
